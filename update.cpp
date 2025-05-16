@@ -124,14 +124,14 @@ private:
   void exec() {
     bool skip = false;
     bool in_if = false;
-    bool else_block = false;
+    //bool else_block = false;
 
     for (size_t i = 0; i < tokens.size(); ++i) {
       const auto &token = tokens[i];
 
       if (token.type == Token::IF) {
         in_if = true;
-        else_block = false;
+        //else_block = false;
         std::string cond = token.value;
         auto pos = cond.find("==");
         if (pos == std::string::npos) {
@@ -147,7 +147,7 @@ private:
       if (token.type == Token::ELSE) {
         if (in_if) {
           skip = !skip;
-          else_block = true;
+          //else_block = true;
         }
         continue;
       }
